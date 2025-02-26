@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import WeatherForm from './components/WeatherForm';
 import WeatherDetails from './components/WeatherDetails';
 
@@ -12,6 +12,8 @@ function App() {
     const fetchWeather = async (city) => {
         setError('');
 
+        if (!city) return;
+
         try {
             const response = await fetch(
                 `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${KEY}&units=metric`
@@ -20,8 +22,11 @@ function App() {
             if (!response.ok) throw new Error('City not found');
 
             const data = await response.json();
-            setWeather(data);
-            console.log(data);
+            setWeather({
+                main: data.main,
+                weather: { ...data?.weather[0] },
+                wind: data.wind,
+            });
         } catch (error) {
             setError(error.message);
         }
@@ -32,10 +37,14 @@ function App() {
         fetchWeather(city);
     };
 
+    useEffect(() => {
+        fetchWeather('London');
+    }, []);
+
     return (
         <div className='container'>
             <WeatherForm onSubmit={handleFormSubmit} />
-            <WeatherDetails weather={weather} />
+            <WeatherDetails data={weather} />
         </div>
     );
 }

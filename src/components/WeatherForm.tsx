@@ -18,7 +18,9 @@ function Form({ onSubmit }) {
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
                 />
-                <Button type={'submit'}>Kliknij mnie</Button>
+                <Button type={'submit'}>
+                    <img src='./search_icon.svg' alt='search icon' />
+                </Button>
             </form>
         </div>
     );
