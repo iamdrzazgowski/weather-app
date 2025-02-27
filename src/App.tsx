@@ -1,20 +1,27 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import WeatherForm from './components/WeatherForm';
 import WeatherDetails from './components/WeatherDetails';
+import ErrorMessage from './components/ErrorMessage';
+import Loading from './components/Loading';
 
 const KEY = import.meta.env.VITE_API_KEY;
 
 function App() {
     const [city, setCity] = useState<string>('');
-    const [weather, setWeather] = useState<any>(null);
+    const [weather, setWeather] = useState<object | null>(null);
     const [error, setError] = useState<string>('');
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
-    const fetchWeather = async (city) => {
+    const fetchWeather = async (city: string) => {
         setError('');
 
-        if (!city) return;
+        if (!city) {
+            setError('City is required');
+            return;
+        }
 
         try {
+            setIsLoading(true);
             const response = await fetch(
                 `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${KEY}&units=metric`
             );
@@ -23,28 +30,33 @@ function App() {
 
             const data = await response.json();
             setWeather({
-                main: data.main,
+                main: data?.main,
                 weather: { ...data?.weather[0] },
-                wind: data.wind,
+                wind: data?.wind,
             });
         } catch (error) {
-            setError(error.message);
+            setError((error as Error).message);
+            setWeather(null);
+        } finally {
+            setIsLoading(false);
         }
     };
 
-    const handleFormSubmit = (city) => {
+    const handleFormSubmit = (city: string) => {
         setCity(city);
         fetchWeather(city);
     };
 
-    useEffect(() => {
-        fetchWeather('London');
-    }, []);
-
     return (
         <div className='container'>
             <WeatherForm onSubmit={handleFormSubmit} />
-            <WeatherDetails data={weather} />
+
+            {!isLoading && weather && (
+                <WeatherDetails data={weather} city={city} />
+            )}
+
+            {isLoading && <Loading />}
+            {error && <ErrorMessage />}
         </div>
     );
 }

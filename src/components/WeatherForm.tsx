@@ -1,13 +1,18 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Button from './Button';
 
 function Form({ onSubmit }) {
-    const [city, setCity] = useState('');
+    const [localCity, setLocalCity] = useState('');
+    const inputField = useRef<HTMLInputElement>(null);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onSubmit(city);
+        onSubmit(localCity);
     };
+
+    useEffect(() => {
+        inputField.current?.focus();
+    }, []);
 
     return (
         <div className='form-container'>
@@ -15,11 +20,12 @@ function Form({ onSubmit }) {
                 <input
                     type='text'
                     placeholder='Podaj miasto'
-                    value={city}
-                    onChange={(e) => setCity(e.target.value)}
+                    value={localCity}
+                    onChange={(e) => setLocalCity(e.target.value)}
+                    ref={inputField}
                 />
                 <Button type={'submit'}>
-                    <img src='./search_icon.svg' alt='search icon' />
+                    <img src='./search-icon.svg' alt='search icon' />
                 </Button>
             </form>
         </div>
