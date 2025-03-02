@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import Button from './Button';
+import SearchIcon from './icons/SearchIcon';
 
 function Form({ onSubmit }) {
     const [localCity, setLocalCity] = useState('');
     const inputField = useRef<HTMLInputElement>(null);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         onSubmit(localCity);
     };
@@ -25,7 +26,8 @@ function Form({ onSubmit }) {
                     ref={inputField}
                 />
                 <Button type={'submit'}>
-                    <img src='./search-icon.svg' alt='search icon' />
+                    {/* <img src='./search-icon.svg' alt='search icon' /> */}
+                    <SearchIcon />
                 </Button>
             </form>
         </div>
