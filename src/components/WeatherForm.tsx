@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Button from './Button';
 import SearchIcon from './icons/SearchIcon';
+import LocationIcon from './icons/LocationIcon';
 
 function Form({ onSubmit }) {
     const [localCity, setLocalCity] = useState('');
@@ -17,6 +18,7 @@ function Form({ onSubmit }) {
 
     return (
         <div className='form-container'>
+            <LocationIcon />
             <form onSubmit={handleSubmit}>
                 <input
                     type='text'
@@ -25,7 +27,7 @@ function Form({ onSubmit }) {
                     onChange={(e) => setLocalCity(e.target.value)}
                     ref={inputField}
                 />
-                <Button type={'submit'}>
+                <Button type={'submit'} clasName='search-button'>
                     {/* <img src='./search-icon.svg' alt='search icon' /> */}
                     <SearchIcon />
                 </Button>
