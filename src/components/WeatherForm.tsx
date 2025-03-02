@@ -22,7 +22,7 @@ function Form({ onSubmit }) {
             <form onSubmit={handleSubmit}>
                 <input
                     type='text'
-                    placeholder='Podaj miasto'
+                    placeholder='Enter city'
                     value={localCity}
                     onChange={(e) => setLocalCity(e.target.value)}
                     ref={inputField}
