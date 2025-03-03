@@ -48,7 +48,7 @@ function App() {
     };
 
     return (
-        <div className='container'>
+        <div className={`container ${!city ? 'auto-height' : ''}`}>
             <WeatherForm onSubmit={handleFormSubmit} />
 
             {!isLoading && weather && (
