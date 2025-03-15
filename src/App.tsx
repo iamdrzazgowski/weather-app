@@ -4,7 +4,7 @@ import WeatherDetails from './components/WeatherDetails';
 import ErrorMessage from './components/ErrorMessage';
 import Loading from './components/Loading';
 
-const KEY = import.meta.env.VITE_API_KEY;
+const KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
 function App() {
     const [city, setCity] = useState<string>('');

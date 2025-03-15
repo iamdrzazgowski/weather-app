@@ -45,7 +45,7 @@ i wyświetla temperaturę, wilgotność oraz warunki atmosferyczne.
 Aby aplikacja działała poprawnie, musisz uzyskać klucz API z wybranego serwisu
 pogodowego (OpenWeatherMap) i dodać go do pliku .env:
 
-    VITE_API_KEY=twoj_klucz_api
+    VITE_WEATHER_API_KEY=twoj_klucz_api
 
 ## Design aplikacji
 
