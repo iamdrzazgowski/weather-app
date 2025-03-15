@@ -49,4 +49,4 @@ pogodowego (OpenWeatherMap) i dodać go do pliku .env:
 
 ## Design aplikacji
 
-![Design](https://github.com/iamdrzazgowski/weather-app/tree/main/design/weather-app-design.jpg)
+![Design](https://github.com/iamdrzazgowski/weather-app/blob/main/design/weather-app-design.JPG)
