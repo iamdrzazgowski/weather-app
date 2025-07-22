@@ -1,52 +1,56 @@
-# Aplikacja Pogodowa
+# 🌤️ Weather App
 
-## Opis
+A sleek and simple weather application built with React and Vite, allowing users to check the current weather in any city. It fetches data from an external weather API and displays essential information like temperature, humidity, and weather conditions.
 
-Aplikacja pogodowa stworzona w React i Vite, pozwalająca na sprawdzenie
-aktualnej pogody w wybranym mieście. Pobiera dane z zewnętrznego API pogodowego
-i wyświetla temperaturę, wilgotność oraz warunki atmosferyczne.
+---
 
-## Funkcjonalności
+## 🔧 Key Features:
 
--   Wyszukiwanie pogody dla dowolnego miasta
--   Wyświetlanie temperatury, wilgotności oraz opisu pogody
--   Pobieranie danych z API pogodowego
--   Prosty i responsywny interfejs
+-   🔍 Search for weather in any city
+-   🌡️ Display of temperature, humidity, and weather description
+-   🌐 Fetches live data from the OpenWeatherMap API
 
-## Technologie
+---
 
--   React
--   Vite
--   JavaScript (ES6+) / TypeScript
--   CSS
--   API pogodowe (OpenWeatherMap)
+### 🛠️ Tech Stack
 
-## Instalacja
+-   ⚛️ **React** – Frontend JavaScript library for building dynamic user
+    interfaces
+-   ⚡ **Vite** – Fast build tool and development server
+-   🧠 **JavaScript (ES6+) / TypeScript**
+-   ☁️ **OpenWeatherMap API**
 
-1. Sklonuj repozytorium:
+---
+
+## ⚙️ Installation
+
+1. Clone the repository and navigate to the project folder:
     ```sh
     git clone https://github.com/iamdrzazgowski/weather-app.git
     ```
-2. Przejdź do katalogu projektu:
+2. Navigate to the project directory:
     ```sh
     cd weather-app
     ```
-3. Zainstaluj zależności:
+3. Install dependencies:
     ```sh
     npm install
     ```
-4. Uruchom aplikację:
+4. Run the development server:
     ```sh
     npm run dev
     ```
 
-## Konfiguracja API
+---
 
-Aby aplikacja działała poprawnie, musisz uzyskać klucz API z wybranego serwisu
-pogodowego (OpenWeatherMap) i dodać go do pliku .env:
+## 🔐 API Configuration
+
+To make the app work properly, you'll need to obtain an API key from OpenWeatherMap and add it to a .env file in the root directory:
 
     VITE_WEATHER_API_KEY=twoj_klucz_api
 
-## Design aplikacji
+---
+
+## 🖼️ Screenshots
 
 ![Design](https://github.com/iamdrzazgowski/weather-app/blob/main/design/weather-app-design.JPG)
