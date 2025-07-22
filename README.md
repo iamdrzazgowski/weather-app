@@ -53,4 +53,4 @@ To make the app work properly, you'll need to obtain an API key from OpenWeather
 
 ## 🖼️ Screenshots
 
-![Design](https://github.com/iamdrzazgowski/weather-app/blob/main/design/weather-app-design.JPG)
+![Image](https://github.com/user-attachments/assets/4131139f-a614-4f8f-a205-f0ab47eff2b8)
