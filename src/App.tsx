@@ -3,12 +3,13 @@ import WeatherForm from './components/WeatherForm';
 import WeatherDetails from './components/WeatherDetails';
 import ErrorMessage from './components/ErrorMessage';
 import Loading from './components/Loading';
+import { WeatherData } from './types/WeatherData';
 
 const KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
 function App() {
     const [city, setCity] = useState<string>('');
-    const [weather, setWeather] = useState<object | null>(null);
+    const [weather, setWeather] = useState<WeatherData | null>(null);
     const [error, setError] = useState<string>('');
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -51,9 +52,7 @@ function App() {
         <div className={`container ${!city ? 'auto-height' : ''}`}>
             <WeatherForm onSubmit={handleFormSubmit} />
 
-            {!isLoading && weather && (
-                <WeatherDetails data={weather} city={city} />
-            )}
+            {!isLoading && weather && <WeatherDetails data={weather} />}
 
             {isLoading && <Loading />}
             {error && <ErrorMessage />}

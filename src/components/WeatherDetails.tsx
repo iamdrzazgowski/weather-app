@@ -1,8 +1,10 @@
 import WindIcon from './icons/WindIcon';
 import WaterIcon from './icons/WaterIcon';
+import { WeatherData } from '../types/WeatherData';
 
-function WeatherDetails({ data, city }) {
+function WeatherDetails({ data }: { data: WeatherData }) {
     const icon = data?.weather?.icon.replace('n', 'd');
+    console.log(data);
 
     return (
         <div>

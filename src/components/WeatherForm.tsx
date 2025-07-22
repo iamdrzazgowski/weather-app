@@ -3,7 +3,7 @@ import Button from './Button';
 import SearchIcon from './icons/SearchIcon';
 import LocationIcon from './icons/LocationIcon';
 
-function Form({ onSubmit }) {
+function Form({ onSubmit }: { onSubmit: (city: string) => void }) {
     const [localCity, setLocalCity] = useState('');
     const inputField = useRef<HTMLInputElement>(null);
 
