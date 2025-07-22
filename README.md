@@ -41,11 +41,15 @@ A sleek and simple weather application built with React and Vite, allowing users
     npm run dev
     ```
 
+---
+
 ## 🔐 API Configuration
 
 To make the app work properly, you'll need to obtain an API key from OpenWeatherMap and add it to a .env file in the root directory:
 
     VITE_WEATHER_API_KEY=twoj_klucz_api
+
+---
 
 ## 🖼️ Screenshots
 
